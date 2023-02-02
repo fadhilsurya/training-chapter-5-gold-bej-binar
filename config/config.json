@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgrespw",
+    "database": "toyota",
+    "host": "0.0.0.0",
+    "port":"32768",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "postgrespw",
+    "database": "toyota",
+    "host": "0.0.0.0",
+    "port":"32768",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "postgrespw",
+    "database": "toyota",
+    "host": "0.0.0.0",
+    "port":"32768",
+    "dialect": "postgres"
+  }
+}
