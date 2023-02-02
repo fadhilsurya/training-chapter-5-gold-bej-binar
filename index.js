@@ -2,14 +2,14 @@ const express = require('express')
 require('dotenv').config()
 const app = express()
 const port = process.env.PORT || 3000
-const userRoute = require('./route/toyota.route')
+const carsRoute = require('./route/car.route')
 
 app.use(express.json())
 app.use(express.urlencoded({
     extended: false
 }))
 
-app.use('/user', userRoute)
+app.use('/cars', carsRoute)
 
 // testing connection and connect for sequelize here
 
