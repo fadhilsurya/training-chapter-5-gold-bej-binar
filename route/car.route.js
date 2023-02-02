@@ -8,17 +8,98 @@ const carClass = new car()
 
 // bagian ini me-render bagian page menggunakan EJS 
 router.get('/', (req, res, next) => {
-    let carData = carClass.getAllCar()
-    if (carData != null) {
-        return res.status(400).json({
-            errors: errors.array()
+
+    carClass.getAllCar()
+        .then(data => {
+            return res.status(200).json({
+                data
+            })
         })
-    }
-    return res.status(200).json({
-        data: carData
-    })
+        .catch(err => {
+            return res.status(400).json({
+                data: err
+            })
+
+        })
 
 })
+router.get('/search', (req, res, next) => {
+    console.log(req.query)
+    carClass.search(req.query.name)
+        .then(data => {
+            return res.status(200).json({
+                data
+            })
+        })
+        .catch(err => {
+            return res.status(400).json({
+                data: err
+            })
+
+        })
+})
+
+router.get('/:id', (req, res, next) => {
+    carClass.getById(req.params.id)
+        .then(data => {
+            return res.status(200).json({
+                data
+            })
+        })
+        .catch(err => {
+            return res.status(400).json({
+                data: err
+            })
+
+        })
+})
+
+router.post('/', (req, res, next) => {
+    carClass.insertData(req.body)
+        .then(data => {
+            return res.status(200).json({
+                data
+            })
+        })
+        .catch(err => {
+            return res.status(400).json({
+                data: err
+            })
+
+        })
+})
+
+router.put('/:id', (req, res, next) => {
+    carClass.update(req.params.id, req.body)
+        .then(data => {
+            return res.status(200).json({
+                data
+            })
+        })
+        .catch(err => {
+            return res.status(400).json({
+                data: err
+            })
+
+        })
+})
+
+router.delete('/:id', (req, res, next) => {
+    carClass.deleteData(req.params.id)
+        .then(data => {
+            return res.status(200).json({
+                data
+            })
+        })
+        .catch(err => {
+            return res.status(400).json({
+                data: err
+            })
+
+        })
+})
+
+
 
 // router.get('/signin', (req, res, next) => {
 //     res.render('signin')
