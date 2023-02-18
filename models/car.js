@@ -27,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
     pengerak_roda: {
       type: DataTypes.STRING
     },
+    // is_active: {
+    //   type: DataTypes.BOOLEAN,
+    //   defaultValue: false,
+    //   allowNull: false
+    // },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
